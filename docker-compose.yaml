@@ -5,3 +5,5 @@ services:
     image: nginx
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - 80:80
