@@ -1,4 +1,4 @@
 
 location /test/ {
-  proxy_pass http://baidu.com;
+  proxy_pass http://baidu.com/;
 }
