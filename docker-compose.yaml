@@ -7,3 +7,7 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - 80:80
+    links:
+      - httpd:httpd
+  httpd:
+    image: httpd
