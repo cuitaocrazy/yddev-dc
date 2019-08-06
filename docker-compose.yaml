@@ -4,4 +4,4 @@ services:
   nginx:
     image: nginx
     volumes:
-      - nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/conf.d:/etc/nginx/conf.d
