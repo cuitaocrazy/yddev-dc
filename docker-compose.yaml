@@ -7,7 +7,3 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - 80:80
-    links:
-      - nginx2:nginx2
-  nginx2:
-    image: nginx
