@@ -1,0 +1,35 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+
+server {
+    listen 8080;
+    server_name www.yadadev.com;
+
+    location / {
+        return 301 https://www.yadadev.com:4568/;
+    }
+}
+
+server {
+    listen 4568;
+    server_name www.yadadev.com;
+
+    ssl on;
+    ssl_certificate /etc/ssl/private/214236700380633.pem;
+    ssl_certificate_key /etc/ssl/private/214236700380633.key;
+    location / {
+        proxy_pass http://localhost/;
+    }
+}

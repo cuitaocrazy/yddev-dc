@@ -1,13 +1,20 @@
 version: '3.1'
 
+volumes:
+  nexus-data:
+
 services:
   nginx:
     image: nginx
+    links:
+      - nexus:nexus
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certs:/etc/ssl/private
     ports:
+      - 443:443
       - 80:80
-    links:
-      - httpd:httpd
-  httpd:
-    image: httpd
+  nexus:
+    image: sonatype/nexus3
+    volumes:
+      - nexus-data:/nexus-data
