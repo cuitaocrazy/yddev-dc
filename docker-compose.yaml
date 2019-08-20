@@ -29,9 +29,6 @@ services:
       NEXUS_CONTEXT: nexus
   gitlab:
     image: gitlab/gitlab-ce
-    environment:
-      GITLAB_OMNIBUS_CONFIG: |
-        external_url 'http://dev.lanxinpay.com'
     volumes:
     - gitlab-data:/var/opt/gitlab:Z
     - gitlab-log:/var/log/gitlab:Z
